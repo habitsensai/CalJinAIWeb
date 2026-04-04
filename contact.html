@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Support - CalJin AI</title>
+    <link rel="icon" type="image/png" href="assets/image/Gemini_Generated_Image_bz4fphbz4fphbz4f.png">
+    <meta name="description"
+        content="Need help with CalJin AI? Contact our support team for any questions or feedback.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#000000',
+                        premium: '#1a1a1a',
+                        accent: '#ffffff',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script src="assets/js/protection.js"></script>
+</head>
+
+<body class="bg-dark text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- Simple Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span class="text-sm font-bold">Back to Home</span>
+            </a>
+            <div class="flex items-center gap-2">
+                <img src="assets/image/Gemini_Generated_Image_bz4fphbz4fphbz4f.png" alt="CalJin AI Logo"
+                    class="w-6 h-6 rounded-md object-cover">
+                <span class="text-sm font-black tracking-tighter uppercase">CalJin AI</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Form Section -->
+    <main class="pt-32 pb-20 px-6 max-w-4xl mx-auto">
+        <div class="text-center mb-16 space-y-4">
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight">Contact Support</h1>
+            <p class="text-lg text-white/50 max-w-xl mx-auto">Have a question or feedback? We're here to help. Send us a
+                message and we'll get back to you as soon as possible.</p>
+        </div>
+
+        <div class="max-w-xl mx-auto">
+            <div class="glass-card p-8 md:p-12 relative overflow-hidden group">
+                <!-- Background Glow -->
+                <div
+                    class="absolute -top-24 -right-24 w-48 h-48 bg-white/5 blur-3xl rounded-full group-hover:bg-white/10 transition-all duration-500">
+                </div>
+
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST"
+                    class="space-y-6 relative z-10">
+                    <!-- Web3Forms Access Key -->
+                    <input type="hidden" name="access_key" value="4b1434c9-c4c8-4f90-99fd-a8b9c9e378d5">
+
+                    <!-- Form Fields -->
+                    <div class="space-y-2">
+                        <label for="name" class="text-xs font-bold uppercase tracking-widest text-white/50 px-1">Full
+                            Name</label>
+                        <input type="text" name="name" id="name" placeholder="John Doe" required
+                            class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="email" class="text-xs font-bold uppercase tracking-widest text-white/50 px-1">Email
+                            Address</label>
+                        <input type="email" name="email" id="email" placeholder="john@example.com" required
+                            class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label for="message" class="text-xs font-bold uppercase tracking-widest text-white/50 px-1">How
+                            can we help?</label>
+                        <textarea name="message" id="message" rows="5" placeholder="Tell us more about your inquiry..."
+                            required
+                            class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" id="submit-btn"
+                        class="w-full bg-white text-black py-5 rounded-2xl font-black text-lg hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] flex items-center justify-center gap-2">
+                        <span>Send Message</span>
+                    </button>
+
+                    <div id="result" class="text-center text-sm font-medium py-2 hidden"></div>
+                </form>
+            </div>
+
+            <script>
+                const form = document.getElementById('contact-form');
+                const result = document.getElementById('result');
+                const submitBtn = document.getElementById('submit-btn');
+                const btnText = submitBtn.querySelector('span');
+
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // Show Loading State
+                    submitBtn.disabled = true;
+                    submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    btnText.innerText = "Sending...";
+                    result.classList.add('hidden');
+
+                    const formData = new FormData(form);
+                    const object = Object.fromEntries(formData);
+                    const json = JSON.stringify(object);
+
+                    fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: json
+                    })
+                        .then(async (response) => {
+                            let json = await response.json();
+                            if (response.status == 200) {
+                                result.innerHTML = "Success! Your message has been sent.";
+                                result.classList.remove('hidden', 'text-red-400');
+                                result.classList.add('text-green-400');
+                                form.reset();
+                            } else {
+                                console.log(response);
+                                result.innerHTML = json.message;
+                                result.classList.remove('hidden', 'text-green-400');
+                                result.classList.add('text-red-400');
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            result.innerHTML = "Something went wrong!";
+                            result.classList.remove('hidden', 'text-green-400');
+                            result.classList.add('text-red-400');
+                        })
+                        .then(function () {
+                            // Reset Button State
+                            submitBtn.disabled = false;
+                            submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                            btnText.innerText = "Send Message";
+                            setTimeout(() => {
+                                result.classList.add('hidden');
+                            }, 5000);
+                        });
+                });
+            </script>
+
+            <!-- Alternative Contact -->
+            <div class="mt-12 text-center text-white/40 text-sm">
+                <p>Prefer email? Reach us directly at <a href="mailto:support@caljinai.com"
+                        class="text-white hover:underline transition-all font-semibold">support@caljinai.com</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="py-12 border-t border-white/5 px-6 text-center">
+        <p class="text-sm text-white/30">© 2026 CalJin AI. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,265 @@
+/* Custom Styles for CalJin AI Landing Page */
+
+:root {
+    --bg-dark: #000000;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --accent-glow: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #ffffff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Glassmorphism Navigation */
+.glass-nav {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+/* Hero Floating Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(1deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+.hero-mockup-float {
+    animation: float 6s ease-in-out infinite;
+    position: relative;
+    overflow: visible;
+    height: 400px;
+    /* Mobile-first base height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slideshow-img {
+    max-width: 100%;
+    /* Increased from 85% */
+    max-height: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Section Spacing */
+section {
+    position: relative;
+    z-index: 1;
+}
+
+/* Glass Cards */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Glowing Elements */
+.glow-bg {
+    position: absolute;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+/* Custom Text Gradients/Colors */
+.text-transparent-gradient {
+    background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.4) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Smooth Transitions */
+a,
+button {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* Logo Pulse Animation */
+@keyframes logo-pulse {
+    0% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.8;
+    }
+}
+
+.logo-pulse {
+    animation: logo-pulse 3s infinite ease-in-out;
+}
+
+
+/* Carousel Styles */
+.carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    width: 100%;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 48px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #fff;
+    width: 24px;
+    border-radius: 10px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+    .hero-mockup-float {
+        height: 700px;
+    }
+}
+
+/* Tablet Landscape / Small Desktop (1024px) */
+@media (max-width: 1024px) {
+    .hero-mockup-float {
+        height: 550px;
+    }
+}
+
+/* Tablet Portrait (768px) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem !important;
+    }
+
+    .hero-mockup-float {
+        height: 450px;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .carousel-dots {
+        margin-top: 24px;
+    }
+}
+
+/* Mobile Landscape / Large Phones (580px) */
+@media (max-width: 580px) {
+    h1 {
+        font-size: 2rem !important;
+    }
+
+    .hero-mockup-float {
+        height: 380px;
+        max-width: 300px;
+    }
+}
+
+/* Standard Mobile (480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem !important;
+    }
+
+    .hero-mockup-float {
+        height: 350px;
+        max-width: 280px;
+    }
+
+    .glass-card {
+        border-radius: 1.2rem;
+    }
+
+    .carousel-dots {
+        margin-top: 16px;
+        gap: 8px;
+    }
+}
+
+/* Small Mobile (360px and below) */
+@media (max-width: 360px) {
+    h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .hero-mockup-float {
+        height: 300px;
+        max-width: 240px;
+    }
+
+    .glass-card {
+        border-radius: 1rem;
+    }
+}

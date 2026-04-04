@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalJin AI - AI Calorie Tracker</title>
+    <link rel="icon" type="image/png" href="assets/image/Gemini_Generated_Image_bz4fphbz4fphbz4f.png">
+    <meta name="description"
+        content="Meet CalJin — the AI-powered app that makes calorie tracking effortless. Snap a photo and instantly get calories, nutrients, and personalized tips.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#000000',
+                        premium: '#1a1a1a',
+                        accent: '#ffffff',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <script src="assets/js/protection.js"></script>
+</head>
+
+<body class="bg-dark text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- Fixed Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Logo Section -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden">
+                    <img src="assets/image/Gemini_Generated_Image_bz4fphbz4fphbz4f.png" alt="CalJin AI Logo"
+                        class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold leading-none">CalJin AI</h1>
+
+                </div>
+            </div>
+
+            <!-- Nav Links -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
+                <a href="#how-it-works" class="hover:text-white transition-colors">How it works</a>
+                <a href="#accuracy" class="hover:text-white transition-colors">Why trust it?</a>
+            </div>
+
+            <!-- CTA -->
+            <div>
+                <a href="#"
+                    class="bg-white text-black px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 active:scale-95 transition-all">
+                    Download
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-52 md:pb-32 px-6 overflow-hidden">
+
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-20">
+            <!-- Left Side Content -->
+            <div class="flex-1 text-center md:text-left space-y-8">
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1]">
+                    Track Calories in <br class="hidden md:block"> <span
+                        class="text-white/40 text-transparent-gradient">a Snap</span>
+                </h1>
+                <p class="text-lg md:text-xl text-white/60 max-w-lg mx-auto md:mx-0 leading-relaxed">
+                    Meet CalJin — the AI-powered app that makes calorie tracking effortless. Snap a photo or scan a
+                    barcode, and instantly get calories, nutrients, and personalized tips. Stay on track with smart
+                    reminders and reach your goals, hassle-free.
+                </p>
+
+                <!-- Store Button -->
+                <div class="flex items-center gap-6 justify-center md:justify-start pt-4">
+                    <!-- Store Button -->
+                    <a href="#"
+                        class="flex items-center gap-4 bg-black border border-white/20 px-8 py-4 rounded-2xl hover:bg-white/10 transition-all group shadow-lg hover:shadow-white/5 active:scale-95">
+                        <i class="fa-brands fa-google-play text-4xl group-hover:scale-110 transition-transform"></i>
+                        <div class="text-left">
+                            <p class="text-[10px] uppercase tracking-widest leading-none opacity-60 font-bold mb-1">Get
+                                it on</p>
+                            <p class="text-2xl font-black">Google Play</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Side Mockup (Slideshow) -->
+            <div class="flex-1 relative flex items-center justify-center w-full min-h-[350px] md:min-h-0">
+                <div id="hero-slideshow"
+                    class="relative z-10 w-full max-w-[320px] md:max-w-[500px] mx-auto hero-mockup-float flex items-center justify-center">
+                    <img src="assets/image/1.png" alt="CalJin AI App 1"
+                        class="slideshow-img active opacity-100 absolute w-full transition-opacity duration-1000 ease-in-out">
+                    <img src="assets/image/2.png" alt="CalJin AI App 2"
+                        class="slideshow-img opacity-0 absolute w-full transition-opacity duration-1000 ease-in-out">
+                    <img src="assets/image/3.png" alt="CalJin AI App 3"
+                        class="slideshow-img opacity-0 absolute w-full transition-opacity duration-1000 ease-in-out">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slideshow Control Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('.slideshow-img');
+            let currentIndex = 0;
+
+            setInterval(() => {
+                images[currentIndex].classList.remove('opacity-100');
+                images[currentIndex].classList.add('opacity-0');
+
+                currentIndex = (currentIndex + 1) % images.length;
+
+                images[currentIndex].classList.remove('opacity-0');
+                images[currentIndex].classList.add('opacity-100');
+            }, 4000); // Swaps every 4 seconds
+        });
+    </script>
+    <!-- Social Proof Section -->
+    <section class="py-12 bg-black border-t border-b border-white/5 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-white/40 text-sm font-medium tracking-widest uppercase mb-8">Trusted by thousands worldwide
+            </p>
+
+            <!-- User Avatars Row -->
+            <div class="flex flex-col items-center gap-6">
+                <div class="flex -space-x-4 overflow-hidden justify-center items-center">
+                    <img class="inline-block h-12 w-12 rounded-full ring-4 ring-black"
+                        src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        alt="">
+                    <img class="inline-block h-12 w-12 rounded-full ring-4 ring-black"
+                        src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        alt="">
+                    <img class="inline-block h-12 w-12 rounded-full ring-4 ring-black"
+                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
+                        alt="">
+                    <img class="inline-block h-12 w-12 rounded-full ring-4 ring-black"
+                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        alt="">
+                    <img class="inline-block h-12 w-12 rounded-full ring-4 ring-black"
+                        src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        alt="">
+                </div>
+                <h2 class="text-2xl md:text-3xl font-light">
+                    Over <span class="font-bold text-white">1 million</span> users in 52 countries will love <span
+                        class="font-bold">CalJin AI</span>
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Does It Work Section -->
+    <section id="how-it-works" class="py-24 md:py-40 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="carousel-viewport py-20">
+                <div class="carousel-track" id="how-it-works-track">
+
+                    <!-- Slide 1: Original How It Works -->
+                    <div class="carousel-slide px-4 md:px-20">
+                        <div class="flex flex-col md:flex-row items-center gap-16 md:gap-32">
+                            <!-- Pancake/Biryani Illustration -->
+                            <div class="flex-1 relative order-2 md:order-1 flex items-center justify-center">
+                                <div class="relative w-full max-w-2xl">
+                                    <img src="assets/image/4.png" alt="CalJin AI Sample Analysis" class="w-full">
+
+                                    <!-- Floating Macro Labels -->
+                                    <div
+                                        class="absolute top-0 left-4 aspect-square w-24 glass-card p-2 flex flex-col items-center justify-center rounded-[2rem] text-center">
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center mb-1">
+                                            🍞</div>
+                                        <p class="text-[9px] text-white/50 uppercase font-black tracking-tighter">Carbs
+                                        </p>
+                                        <p class="text-base font-black">55 g</p>
+                                    </div>
+                                    <div
+                                        class="absolute top-1/3 right-4 aspect-square w-24 glass-card p-2 flex flex-col items-center justify-center rounded-[2rem] text-center">
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-red-500/20 flex items-center justify-center mb-1">
+                                            🍗</div>
+                                        <p class="text-[9px] text-white/50 uppercase font-black tracking-tighter">
+                                            Protein</p>
+                                        <p class="text-base font-black">20 g</p>
+                                    </div>
+                                    <div
+                                        class="absolute bottom-4 left-1/2 -translate-x-1/2 aspect-square w-24 glass-card p-2 flex flex-col items-center justify-center rounded-[2rem] text-center">
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center mb-1">
+                                            🥑</div>
+                                        <p class="text-[9px] text-white/50 uppercase font-black tracking-tighter">Fat
+                                        </p>
+                                        <p class="text-base font-black">12 g</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="flex-1 space-y-8 order-1 md:order-2 px-4 md:px-0">
+                                <h2 class="text-4xl md:text-5xl font-bold tracking-tight">How Does <br> <span
+                                        class="text-white/40">CalJin Work?</span></h2>
+                                <div class="space-y-6 text-lg text-white/60 leading-relaxed">
+                                    <p>It's as simple as snapping a picture. CalJin uses your phone's camera and our
+                                        deep AI models to estimate the volume of your food.</p>
+                                    <p>Then, our AI — trained on thousands of meal images — identifies each part of your
+                                        dish and figures out their proportions. Finally, our powerful multimodal model
+                                        analyzes it all to deliver detailed nutritional info: calories, protein, carbs,
+                                        fat, and more.</p>
+                                </div>
+                                <div class="pt-4">
+                                    <a href="#"
+                                        class="bg-white text-black px-8 py-4 rounded-full font-bold hover:scale-105 active:scale-95 transition-all inline-block">
+                                        Start for Free
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Live AI Assistant -->
+                    <div class="carousel-slide px-4 md:px-20">
+                        <div class="flex flex-col md:flex-row items-center gap-16 md:gap-32">
+                            <!-- AI Mockup -->
+                            <div class="flex-1 relative order-2 md:order-1 flex items-center justify-center">
+                                <div class="relative w-full max-w-xl group">
+                                    <div
+                                        class="absolute inset-0 bg-white/10 blur-3xl rounded-full opacity-30 group-hover:opacity-50 transition-opacity">
+                                    </div>
+                                    <img src="assets/image/5.png" alt="CalJin Live AI Assistant"
+                                        class="relative w-full transition-transform duration-500 group-hover:scale-[1.02]">
+
+                                    <!-- Floating AI Labels -->
+                                    <div
+                                        class="absolute top-2 right-2 md:-top-6 md:-right-6 glass-card px-3 py-2 md:px-4 md:py-3 flex items-center gap-2 md:gap-3 animate-pulse z-20 scale-90 md:scale-100">
+                                        <div
+                                            class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
+                                            <i class="fa-solid fa-microphone text-blue-400 text-xs md:text-base"></i>
+                                        </div>
+                                        <div class="text-left">
+                                            <p
+                                                class="text-[8px] md:text-[10px] text-white/50 uppercase font-black tracking-widest">
+                                                Voice AI</p>
+                                            <p class="text-xs md:text-sm font-bold">Listening...</p>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="absolute top-1/2 left-2 md:-left-8 -translate-y-1/2 glass-card px-3 py-2 md:px-4 md:py-3 flex items-center gap-2 md:gap-3 z-20 scale-90 md:scale-100 hidden sm:flex">
+                                        <div
+                                            class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-purple-500/20 flex items-center justify-center">
+                                            <i class="fa-solid fa-sparkles text-purple-400 text-xs md:text-base"></i>
+                                        </div>
+                                        <div class="text-left">
+                                            <p
+                                                class="text-[8px] md:text-[10px] text-white/50 uppercase font-black tracking-widest">
+                                                Assistant</p>
+                                            <p class="text-xs md:text-sm font-bold">"What's in this bowl?"</p>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="absolute bottom-2 left-1/2 md:-bottom-6 -translate-x-1/2 glass-card px-4 py-2 md:px-6 flex items-center gap-3 md:gap-4 bg-white/5 z-20 scale-90 md:scale-100">
+                                        <div class="flex gap-1">
+                                            <div class="w-1 h-3 md:h-4 bg-blue-400 rounded-full animate-bounce"
+                                                style="animation-delay: 0.1s"></div>
+                                            <div class="w-1 h-4 md:h-6 bg-blue-400 rounded-full animate-bounce"
+                                                style="animation-delay: 0.2s"></div>
+                                            <div class="w-1 h-3 md:h-4 bg-blue-400 rounded-full animate-bounce"
+                                                style="animation-delay: 0.3s"></div>
+                                            <div class="w-1 h-5 md:h-7 bg-blue-400 rounded-full animate-bounce"
+                                                style="animation-delay: 0.4s"></div>
+                                            <div class="w-1 h-4 md:h-5 bg-blue-400 rounded-full animate-bounce"
+                                                style="animation-delay: 0.5s"></div>
+                                        </div>
+                                        <p class="text-[10px] md:text-xs font-medium text-white/70">Analyzing
+                                            nutrients...</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="flex-1 space-y-8 order-1 md:order-2 px-4 md:px-0">
+                                <h2 class="text-4xl md:text-5xl font-bold tracking-tight">Meet Your <br> <span
+                                        class="text-white/40">Live AI Assistant</span></h2>
+                                <div class="space-y-6 text-lg text-white/60 leading-relaxed">
+                                    <p>Need instant answers about what's on your plate? Just long-press the microphone
+                                        button and your camera comes alive.</p>
+                                    <p>Our Live AI talks back to you in real-time, identifying ingredients, estimating
+                                        portion sizes, and answering your nutrition questions instantly. It's like
+                                        having a world-class nutritionist right in your pocket, ready to guide your
+                                        every bite.</p>
+                                </div>
+                                <div class="pt-4">
+                                    <a href="#"
+                                        class="bg-white text-black px-8 py-4 rounded-full font-bold hover:scale-105 active:scale-95 transition-all inline-block">
+                                        Experience It Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Indicators -->
+            <div class="carousel-dots" id="carousel-dots">
+                <div class="dot active" onclick="goToSlide(0)"></div>
+                <div class="dot" onclick="goToSlide(1)"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Accuracy Section -->
+    <section id="accuracy" class="py-24 md:py-40 bg-black/50">
+        <div class="max-w-7xl mx-auto px-6 text-center space-y-16">
+            <div class="space-y-4">
+                <h2 class="text-4xl md:text-5xl font-bold">How Accurate Is <span class="text-white/40">CalJin?</span>
+                </h2>
+                <p class="text-white/50 max-w-2xl mx-auto leading-relaxed">
+                    CalJin's image recognition is about 90% accurate in most cases. For complex meals where ingredients
+                    are hidden, accuracy can vary. Not happy with the result? Tap 'Fix results' to give feedback and
+                    help improve the system.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- General Population -->
+                <div class="glass-card p-10 flex flex-col items-center gap-6">
+                    <div class="text-5xl">🌍</div>
+                    <div class="space-y-2">
+                        <h3 class="font-bold text-xl">General Population</h3>
+                        <p class="text-sm text-white/40">can only estimate the nutritional value of food with an
+                            accuracy of</p>
+                    </div>
+                    <div class="text-6xl font-black text-white/20">45%</div>
+                </div>
+
+                <!-- CalJin AI (Highlighted) -->
+                <div
+                    class="glass-card p-10 flex flex-col items-center gap-6 border-white/40 bg-white/5 relative overflow-hidden group">
+                    <div class="w-16 h-16 rounded-2xl flex items-center justify-center overflow-hidden">
+                        <img src="assets/image/Gemini_Generated_Image_bz4fphbz4fphbz4f.png" alt="CalJin AI"
+                            class="w-full h-full object-cover logo-pulse">
+                    </div>
+                    <div class="space-y-2 relative z-10">
+                        <h3 class="font-bold text-xl uppercase tracking-widest">CalJin AI</h3>
+                        <p class="text-sm text-white/60">predicts the nutritional value of food with consistent accuracy
+                            over</p>
+                    </div>
+                    <div class="text-7xl font-black text-white animate-pulse">80%</div>
+                </div>
+
+                <!-- Nutritionists -->
+                <div class="glass-card p-10 flex flex-col items-center gap-6">
+                    <div class="text-5xl">👨‍⚕️</div>
+                    <div class="space-y-2">
+                        <h3 class="font-bold text-xl">Nutritionists</h3>
+                        <p class="text-sm text-white/40">can predict the nutritional value of food with an average
+                            accuracy of</p>
+                    </div>
+                    <div class="text-6xl font-black text-white/20">60%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-24 md:py-40 px-6 text-center relative overflow-hidden">
+
+        <div class="max-w-3xl mx-auto space-y-10">
+            <h2 class="text-5xl md:text-7xl font-extrabold tracking-tight">Try CalJin Today</h2>
+            <p class="text-xl text-white/50">Track your calories with just a picture. Start your journey to a healthier
+                you.</p>
+            <div class="pt-4">
+                <a href="#"
+                    class="bg-white text-black px-10 py-5 rounded-full text-lg font-bold hover:scale-105 active:scale-95 transition-all shadow-[0_0_40px_rgba(255,255,255,0.2)]">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="flex items-center gap-3">
+                <img src="assets/image/Gemini_Generated_Image_bz4fphbz4fphbz4f.png" alt="CalJin AI"
+                    class="w-6 h-6 opacity-50 rounded-md overflow-hidden object-cover">
+                <span class="text-sm text-white/30 font-medium">© 2026 CalJin AI. All rights reserved.</span>
+            </div>
+
+            <div class="flex gap-8 text-xs font-medium text-white/30">
+                <a href="terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a>
+                <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="contact.html" class="hover:text-white transition-colors">Contact Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- How It Works Carousel Script -->
+    <script>
+        let currentSlide = 0;
+        const track = document.getElementById('how-it-works-track');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = 2;
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+            resetInterval();
+        }
+
+        let carouselInterval = setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }, 6000);
+
+        function resetInterval() {
+            clearInterval(carouselInterval);
+            carouselInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            }, 6000);
+        }
+    </script>
+</body>
+
+</html>
