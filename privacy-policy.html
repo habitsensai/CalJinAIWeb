@@ -93,7 +93,7 @@
 
     <main class="pt-32 pb-20 px-6 max-w-4xl mx-auto">
         <h1 class="text-4xl md:text-5xl font-black mb-4">Privacy Policy</h1>
-        <p class="text-white/40 mb-4 text-sm font-medium">Effective Date: April 1, 2026</p>
+        <p class="text-white/40 mb-4 text-sm font-medium">Effective Date: May 31, 2026</p>
         <p class="text-white/60 mb-12 leading-relaxed max-w-3xl">
             At <strong class="text-white">CalJin AI</strong>, we are committed to protecting your privacy and ensuring
             you have a positive experience when using our mobile application. This Privacy Policy outlines our practices
@@ -112,7 +112,13 @@
                     insights, we collect the following types of information:</p>
 
                 <h3 class="text-lg font-semibold text-white/90 mb-3"><i
-                        class="fa-solid fa-user-circle text-blue-400 mr-2"></i>A. Personal & Health Data</h3>
+                        class="fa-solid fa-user-circle text-blue-400 mr-2"></i>A. Account Information</h3>
+                <p class="text-white/50 mb-6">If you choose to sign in to CalJin AI using Google Sign-In, we receive
+                    your <strong class="text-white/90">email address</strong>, <strong class="text-white/90">display name</strong>, and <strong class="text-white/90">profile picture URL</strong> from
+                    your Google account. This information is managed via Firebase Authentication and stored securely.</p>
+
+                <h3 class="text-lg font-semibold text-white/90 mb-3"><i
+                        class="fa-solid fa-heart-pulse text-red-400 mr-2"></i>B. Personal & Health Data</h3>
                 <p class="text-white/50 mb-3 text-sm">During the onboarding process, we ask for:</p>
                 <ul class="list-disc pl-6 space-y-2 text-white/70 mb-8">
                     <li><strong class="text-white/90">Gender, Age, Weight, and Height:</strong> Used to calculate your
@@ -122,29 +128,35 @@
                     <li><strong class="text-white/90">Activity Level:</strong> Information about your daily lifestyle
                         and workout habits.</li>
                 </ul>
+                <p class="text-white/50 text-sm mb-6 italic">This health data is stored locally on your device using Hive
+                    and is never transmitted to our servers.</p>
 
                 <h3 class="text-lg font-semibold text-white/90 mb-3"><i
-                        class="fa-solid fa-utensils text-green-400 mr-2"></i>B. Nutrition & Usage Data</h3>
+                        class="fa-solid fa-utensils text-green-400 mr-2"></i>C. Nutrition & Usage Data</h3>
                 <ul class="list-disc pl-6 space-y-2 text-white/70 mb-8">
                     <li><strong class="text-white/90">Meal Logs:</strong> Records of the food you eat, including names,
-                        calorie counts, and macronutrients (protein, carbs, fats).</li>
-                    <li><strong class="text-white/90">Photos:</strong> Images of food you capture via the device camera
-                        to enable AI-powered calorie estimation. These images are sent to AI services for processing and
-                        are <strong class="text-white">not</strong> permanently stored on external servers.</li>
-                    <li><strong class="text-white/90">Voice Input:</strong> Audio captured via the microphone when using
-                        speech-to-text features for hands-free meal logging. Audio is processed on-device and is <strong
-                            class="text-white">not</strong> stored or transmitted to external servers.</li>
+                        calorie counts, and macronutrients. Stored locally on your device.</li>
+                    <li><strong class="text-white/90">Food Photos:</strong> Images captured via the device camera are
+                        transmitted to our AI service providers (Google Gemini and Groq) via our secure Cloudflare Worker
+                        proxy for processing. Images are not permanently stored on external servers after analysis.</li>
+                    <li><strong class="text-white/90">Voice Audio:</strong> Audio captured via the microphone for voice
+                        meal logging is transmitted in real-time to Google's Gemini Live API for speech recognition and
+                        nutritional analysis. Audio is processed in real-time and is not permanently stored.</li>
+                    <li><strong class="text-white/90">Text Meal Descriptions:</strong> Text you enter manually is
+                        transmitted to AI service providers via our Cloudflare Worker for nutritional analysis.</li>
                 </ul>
 
                 <h3 class="text-lg font-semibold text-white/90 mb-3"><i
-                        class="fa-solid fa-mobile-screen text-purple-400 mr-2"></i>C. Device & Technical Data</h3>
+                        class="fa-solid fa-mobile-screen text-purple-400 mr-2"></i>D. Device & Technical Data</h3>
                 <ul class="list-disc pl-6 space-y-2 text-white/70">
-                    <li><strong class="text-white/90">App Usage Data:</strong> Anonymous information on how you interact
-                        with the app, such as feature usage and session duration.</li>
-                    <li><strong class="text-white/90">Notification Preferences:</strong> Settings for meal reminders and
-                        goal tracking alerts.</li>
+                    <li><strong class="text-white/90">App Usage Analytics:</strong> Anonymous usage data collected via
+                        Firebase Analytics.</li>
+                    <li><strong class="text-white/90">Crash Reports:</strong> Anonymized diagnostics sent to Firebase
+                        Crashlytics.</li>
+                    <li><strong class="text-white/90">Notification Preferences:</strong> Stored locally on your device.
+                    </li>
                     <li><strong class="text-white/90">Device Identifiers:</strong> Anonymous identifiers used by
-                        RevenueCat to manage your subscription status.</li>
+                        RevenueCat for subscription management.</li>
                 </ul>
             </div>
 
@@ -153,10 +165,7 @@
             <!-- Section 2 -->
             <div>
                 <h2 class="text-2xl font-bold text-white mb-6">2. Permissions We Request</h2>
-                <p class="text-white/60 mb-6">CalJin AI requests the following device permissions to deliver its
-                    features:</p>
-
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto mb-6">
                     <table class="policy-table">
                         <thead>
                             <tr>
@@ -168,34 +177,34 @@
                             <tr>
                                 <td class="font-semibold text-white/90 whitespace-nowrap"><i
                                         class="fa-solid fa-camera text-blue-400 mr-2"></i>Camera</td>
-                                <td>To capture photos of food for AI-powered nutritional analysis.</td>
+                                <td>To capture photos of food for AI-powered nutritional analysis</td>
                             </tr>
                             <tr>
                                 <td class="font-semibold text-white/90 whitespace-nowrap"><i
                                         class="fa-solid fa-microphone text-red-400 mr-2"></i>Microphone</td>
-                                <td>To enable voice-based meal logging via speech-to-text.</td>
+                                <td>To enable voice-based meal logging</td>
                             </tr>
                             <tr>
                                 <td class="font-semibold text-white/90 whitespace-nowrap"><i
                                         class="fa-solid fa-hard-drive text-yellow-400 mr-2"></i>Storage</td>
-                                <td>To save and retrieve meal photos and exported data.</td>
+                                <td>To save and retrieve meal photos and exported data</td>
                             </tr>
                             <tr>
                                 <td class="font-semibold text-white/90 whitespace-nowrap"><i
                                         class="fa-solid fa-bell text-green-400 mr-2"></i>Notifications</td>
-                                <td>To send meal reminders and goal tracking alerts.</td>
+                                <td>To send local meal reminders and goal tracking alerts</td>
                             </tr>
                             <tr>
                                 <td class="font-semibold text-white/90 whitespace-nowrap"><i
                                         class="fa-solid fa-wifi text-purple-400 mr-2"></i>Internet</td>
-                                <td>To communicate with AI services and manage subscriptions.</td>
+                                <td>To communicate with AI services and manage subscriptions</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-
-                <p class="text-white/50 text-sm mt-4 italic">You can manage or revoke these permissions at any time
-                    through your device's system settings.</p>
+                <p class="text-white/50 text-sm italic">All notifications are generated locally on your device — we do
+                    not send remote push notifications. You can manage or revoke permissions through your device's system
+                    settings.</p>
             </div>
 
             <div class="section-divider"></div>
@@ -203,19 +212,22 @@
             <!-- Section 3 -->
             <div>
                 <h2 class="text-2xl font-bold text-white mb-6">3. How We Use Your Information</h2>
-                <p class="text-white/60 mb-4">We use the collected data for the following purposes:</p>
                 <ul class="list-disc pl-6 space-y-2 text-white/70">
-                    <li><strong class="text-white/90">Personalized Planning:</strong> To generate custom calorie and
-                        macro targets based on your unique metabolic profile.</li>
-                    <li><strong class="text-white/90">AI Analysis:</strong> To process images and text descriptions of
-                        food for accurate nutritional estimation.</li>
-                    <li><strong class="text-white/90">Progress Tracking:</strong> To visualize your weight loss or
-                        muscle gain journey over time.</li>
-                    <li><strong class="text-white/90">Subscription Management:</strong> To validate your premium
-                        subscription status and unlock Pro features.</li>
-                    <li><strong class="text-white/90">App Improvement:</strong> To analyze anonymous usage patterns and
-                        optimize the user experience.</li>
+                    <li><strong class="text-white/90">Personalized Planning:</strong> Generate custom calorie and macro
+                        targets</li>
+                    <li><strong class="text-white/90">AI Analysis:</strong> Process images, audio, and text for
+                        nutritional estimation</li>
+                    <li><strong class="text-white/90">Progress Tracking:</strong> Visualize your fitness journey</li>
+                    <li><strong class="text-white/90">Subscription Management:</strong> Validate premium subscription
+                        status</li>
+                    <li><strong class="text-white/90">App Improvement:</strong> Analyze anonymous usage patterns and
+                        crash reports</li>
                 </ul>
+                <div class="glass-card p-6 mt-6">
+                    <p class="font-bold text-white mb-2"><i
+                            class="fa-solid fa-circle-check text-green-400 mr-2"></i>We do NOT use your data for
+                        advertising, third-party marketing, or sale to data brokers.</p>
+                </div>
             </div>
 
             <div class="section-divider"></div>
@@ -223,9 +235,8 @@
             <!-- Section 4 -->
             <div>
                 <h2 class="text-2xl font-bold text-white mb-6">4. Third-Party Services & Data Sharing</h2>
-                <p class="text-white/60 mb-6">We integrate with the following third-party services to provide core app
-                    functionality. We share only the <strong class="text-white">minimum data necessary</strong> for each
-                    service to function:</p>
+                <p class="text-white/60 mb-6">We share only the <strong class="text-white">minimum data
+                        necessary</strong> with these services:</p>
 
                 <div class="overflow-x-auto mb-8">
                     <table class="policy-table">
@@ -238,23 +249,48 @@
                         </thead>
                         <tbody>
                             <tr>
+                                <td class="font-semibold text-white/90 whitespace-nowrap">Cloudflare Workers</td>
+                                <td>Encrypted food photos, voice audio, and text queries</td>
+                                <td>Secure proxy infrastructure for AI requests</td>
+                            </tr>
+                            <tr>
                                 <td class="font-semibold text-white/90 whitespace-nowrap">Google Gemini AI</td>
-                                <td>Food photos, text descriptions of meals</td>
-                                <td>Nutritional analysis and calorie estimation</td>
+                                <td>Food photos, voice audio, text descriptions</td>
+                                <td>Nutritional analysis and voice recognition</td>
                             </tr>
                             <tr>
                                 <td class="font-semibold text-white/90 whitespace-nowrap">Groq AI</td>
-                                <td>Text-based meal and nutrition queries</td>
-                                <td>High-speed AI inference for nutrition coaching</td>
+                                <td>Food photos and text descriptions</td>
+                                <td>High-speed AI inference</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-white/90 whitespace-nowrap">USDA Food Data Central</td>
+                                <td>Food name queries</td>
+                                <td>Authoritative nutritional database</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-white/90 whitespace-nowrap">Firebase Authentication</td>
+                                <td>Google account email, name, profile picture</td>
+                                <td>User account management</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-white/90 whitespace-nowrap">Firebase Analytics</td>
+                                <td>Anonymous usage events</td>
+                                <td>App usage analytics</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-white/90 whitespace-nowrap">Firebase Crashlytics</td>
+                                <td>Anonymous crash diagnostics</td>
+                                <td>Crash reporting</td>
                             </tr>
                             <tr>
                                 <td class="font-semibold text-white/90 whitespace-nowrap">RevenueCat</td>
-                                <td>Anonymous device/user identifiers, purchase receipts</td>
-                                <td>Subscription management and payment validation</td>
+                                <td>Anonymous identifiers, purchase receipts</td>
+                                <td>Subscription management</td>
                             </tr>
                             <tr>
                                 <td class="font-semibold text-white/90 whitespace-nowrap">Google Play Store</td>
-                                <td>Payment and billing information (handled by Google)</td>
+                                <td>Payment and billing information</td>
                                 <td>In-app purchase processing</td>
                             </tr>
                         </tbody>
@@ -265,25 +301,32 @@
                     <p class="font-bold text-white mb-3"><i class="fa-solid fa-shield-halved text-green-400 mr-2"></i>We
                         do NOT:</p>
                     <ul class="list-disc pl-6 space-y-2 text-white/70">
-                        <li>Sell your personal or health data to any third party.</li>
-                        <li>Use your data for advertising or marketing by third parties.</li>
-                        <li>Share your data with any parties not listed above.</li>
+                        <li>Sell your data, use it for advertising, or share it with parties not listed above.</li>
                     </ul>
                 </div>
 
-                <p class="text-white/50 text-sm mb-2">Each third-party service is governed by its own privacy policy:
-                </p>
-                <ul class="list-disc pl-6 space-y-1 text-sm">
+                <p class="text-white/50 text-sm mb-2">Third-party privacy policies:</p>
+                <ul class="list-disc pl-6 space-y-1 text-sm mb-6">
                     <li><a href="https://policies.google.com/privacy" target="_blank"
                             class="text-blue-400 hover:text-blue-300 underline transition-colors">Google Privacy
+                            Policy</a></li>
+                    <li><a href="https://www.cloudflare.com/privacypolicy/" target="_blank"
+                            class="text-blue-400 hover:text-blue-300 underline transition-colors">Cloudflare Privacy
                             Policy</a></li>
                     <li><a href="https://groq.com/privacy-policy/" target="_blank"
                             class="text-blue-400 hover:text-blue-300 underline transition-colors">Groq Privacy
                             Policy</a></li>
+                    <li><a href="https://www.usda.gov/privacy-policy" target="_blank"
+                            class="text-blue-400 hover:text-blue-300 underline transition-colors">USDA Privacy Policy</a>
+                    </li>
                     <li><a href="https://www.revenuecat.com/privacy/" target="_blank"
                             class="text-blue-400 hover:text-blue-300 underline transition-colors">RevenueCat Privacy
                             Policy</a></li>
                 </ul>
+
+                <p class="text-white/50 text-sm italic">Note on AI service data retention: AI providers may temporarily
+                    retain anonymized data for service improvement and abuse prevention. See each provider's privacy
+                    policy for full details.</p>
             </div>
 
             <div class="section-divider"></div>
@@ -293,25 +336,20 @@
                 <h2 class="text-2xl font-bold text-white mb-6">5. Data Storage & Security</h2>
                 <ul class="space-y-4 text-white/70">
                     <li class="flex gap-3"><i class="fa-solid fa-database text-blue-400 mt-1.5 text-sm"></i>
-                        <div><strong class="text-white/90">Local Storage:</strong> The majority of your personal data
-                            (health profile, meal logs, progress history) is stored <strong class="text-white">locally
-                                on your device</strong> using Hive, a secure on-device database. This data is not
-                            transmitted to or stored on external servers.</div>
+                        <div><strong class="text-white/90">Local Storage:</strong> Health profile, meal logs, and
+                            progress history stored locally using Hive on your device.</div>
                     </li>
                     <li class="flex gap-3"><i class="fa-solid fa-cloud text-purple-400 mt-1.5 text-sm"></i>
-                        <div><strong class="text-white/90">Cloud Processing:</strong> Food photos and text queries sent
-                            to AI services (Google Gemini, Groq) are processed in real-time for nutritional analysis.
-                            These are <strong class="text-white">not permanently stored</strong> on external servers
-                            after processing.</div>
+                        <div><strong class="text-white/90">Cloud Processing:</strong> AI requests transmitted via
+                            HTTPS/TLS through our Cloudflare Worker proxy. Not permanently stored after processing.</div>
                     </li>
-                    <li class="flex gap-3"><i class="fa-solid fa-receipt text-yellow-400 mt-1.5 text-sm"></i>
-                        <div><strong class="text-white/90">Subscription Data:</strong> RevenueCat stores anonymous
-                            subscription status information required to validate your premium access.</div>
+                    <li class="flex gap-3"><i class="fa-solid fa-key text-yellow-400 mt-1.5 text-sm"></i>
+                        <div><strong class="text-white/90">API Security:</strong> AI provider API keys stored as
+                            encrypted secrets on Cloudflare infrastructure, never embedded in the App.</div>
                     </li>
                     <li class="flex gap-3"><i class="fa-solid fa-lock text-green-400 mt-1.5 text-sm"></i>
-                        <div><strong class="text-white/90">Security Measures:</strong> We implement industry-standard
-                            security practices to protect your data both in transit (via HTTPS/TLS encryption) and at
-                            rest on your device.</div>
+                        <div><strong class="text-white/90">Industry Standards:</strong> HTTPS/TLS encryption in transit;
+                            secure on-device storage.</div>
                     </li>
                 </ul>
             </div>
@@ -322,88 +360,124 @@
             <div>
                 <h2 class="text-2xl font-bold text-white mb-6">6. Data Retention & Deletion</h2>
                 <ul class="list-disc pl-6 space-y-3 text-white/70 mb-6">
-                    <li><strong class="text-white/90">On-Device Data:</strong> All health profiles, meal logs, and
-                        progress data are stored locally on your device and persist until you choose to delete them.
-                    </li>
-                    <li><strong class="text-white/90">Deleting Your Data:</strong> You can delete individual meal logs
-                        within the app, or clear all app data by uninstalling the app or using the "Clear Data" option
-                        in your device's App Settings.</li>
-                    <li><strong class="text-white/90">Third-Party Data:</strong> Data processed by AI services is
-                        handled in real-time and is not retained. Subscription records managed by RevenueCat are subject
-                        to their own data retention policy.</li>
+                    <li><strong class="text-white/90">On-Device Data:</strong> Persists until you delete it. Delete
+                        individual meal logs in-app, or clear all data via device settings or by uninstalling.</li>
+                    <li><strong class="text-white/90">Account Deletion:</strong> Email support@caljinai.com to delete
+                        your Firebase account. We respond within 30 days.</li>
+                    <li><strong class="text-white/90">Third-Party Data:</strong> AI service data is processed in
+                        real-time, not retained by us.</li>
                 </ul>
-                <p class="text-white/60">If you wish to request complete deletion of any data associated with your
-                    account, please contact us at <a href="mailto:support@caljinai.com"
-                        class="text-blue-400 hover:text-blue-300 underline font-semibold transition-colors">support@caljinai.com</a>.
-                </p>
             </div>
 
             <div class="section-divider"></div>
 
             <!-- Section 7 -->
             <div>
-                <h2 class="text-2xl font-bold text-white mb-6">7. Children's Privacy</h2>
-                <p class="text-white/70">CalJin AI is not intended for use by children under the age of 13. We do not
-                    knowingly collect personal information from children under 13. If we become aware that we have
-                    inadvertently collected personal data from a child under 13, we will take steps to delete such
-                    information promptly. If you are a parent or guardian and believe your child has provided us with
-                    personal data, please contact us at <a href="mailto:support@caljinai.com"
-                        class="text-blue-400 hover:text-blue-300 underline font-semibold transition-colors">support@caljinai.com</a>.
-                </p>
+                <h2 class="text-2xl font-bold text-white mb-6">7. Data Export (Portability)</h2>
+                <p class="text-white/70 mb-4">Request a copy of your data in JSON format:</p>
+                <ul class="list-disc pl-6 space-y-2 text-white/70">
+                    <li>In-App: Settings &rarr; Export Data, OR</li>
+                    <li>Email <a href="mailto:support@caljinai.com"
+                            class="text-blue-400 hover:text-blue-300 underline font-semibold transition-colors">support@caljinai.com</a>
+                    </li>
+                </ul>
+                <p class="text-white/50 text-sm mt-3 italic">We respond to export requests within 30 days.</p>
             </div>
 
             <div class="section-divider"></div>
 
             <!-- Section 8 -->
             <div>
-                <h2 class="text-2xl font-bold text-white mb-6">8. Your Rights & Choices</h2>
-                <p class="text-white/60 mb-4">You have the right to:</p>
-                <ul class="list-disc pl-6 space-y-3 text-white/70">
-                    <li><strong class="text-white/90">Access & Correction:</strong> Review and update your health
-                        profile at any time within the app's settings.</li>
-                    <li><strong class="text-white/90">Data Deletion:</strong> Delete your meal logs within the app, or
-                        remove all app data via your device settings or by uninstalling the app.</li>
-                    <li><strong class="text-white/90">Notification Control:</strong> Enable or disable meal reminders
-                        and alerts at any time through the app or device settings.</li>
-                    <li><strong class="text-white/90">Permission Management:</strong> Revoke camera, microphone, or
-                        notification permissions via your device's system settings.</li>
-                    <li><strong class="text-white/90">Opt-Out of AI Processing:</strong> Stop using the camera scan or
-                        voice input features if you do not wish to send data to AI services.</li>
-                </ul>
+                <h2 class="text-2xl font-bold text-white mb-6">8. Regional Privacy Rights</h2>
+
+                <h3 class="text-lg font-semibold text-white/90 mb-3"><i
+                        class="fa-solid fa-euro-sign text-blue-400 mr-2"></i>A. European Economic Area, United Kingdom & Switzerland (GDPR)</h3>
+                <p class="text-white/70 mb-3">You have the rights to: access, rectification, erasure, restriction,
+                    objection, data portability, withdrawal of consent, and complaint to your local data protection
+                    authority.</p>
+                <p class="text-white/70 mb-3"><strong class="text-white/90">Legal basis for processing:</strong> consent
+                    (AI processing), contract (subscriptions), legitimate interests (app improvement and security).</p>
+                <p class="text-white/70 mb-6">To exercise any right, contact <a href="mailto:support@caljinai.com"
+                        class="text-blue-400 hover:text-blue-300 underline font-semibold transition-colors">support@caljinai.com</a>.
+                    We respond within 30 days.</p>
+
+                <h3 class="text-lg font-semibold text-white/90 mb-3"><i
+                        class="fa-solid fa-calendar text-green-400 mr-2"></i>B. California Residents (CCPA / CPRA)</h3>
+                <p class="text-white/70 mb-3">You have the rights to: know, delete, correct, opt-out of sale or sharing
+                    (we don't sell or share), limit use of sensitive personal information, and non-discrimination.</p>
+                <p class="text-white/70 mb-6">We do not sell or share personal information. To exercise any right,
+                    contact <a href="mailto:support@caljinai.com"
+                        class="text-blue-400 hover:text-blue-300 underline font-semibold transition-colors">support@caljinai.com</a>.</p>
+
+                <h3 class="text-lg font-semibold text-white/90 mb-3"><i
+                        class="fa-solid fa-globe text-yellow-400 mr-2"></i>C. Other Jurisdictions</h3>
+                <p class="text-white/70">Users in Brazil (LGPD), India (DPDP), and other jurisdictions have
+                    substantially similar rights. Contact <a href="mailto:support@caljinai.com"
+                        class="text-blue-400 hover:text-blue-300 underline font-semibold transition-colors">support@caljinai.com</a>.</p>
             </div>
 
             <div class="section-divider"></div>
 
             <!-- Section 9 -->
             <div>
-                <h2 class="text-2xl font-bold text-white mb-6">9. Changes to This Privacy Policy</h2>
-                <p class="text-white/70">We may update this Privacy Policy from time to time. Any changes will be
-                    reflected by updating the "Effective Date" at the top of this document. We encourage you to review
-                    this Privacy Policy periodically for any changes. Continued use of the App after any modifications
-                    constitutes your acceptance of the revised policy.</p>
+                <h2 class="text-2xl font-bold text-white mb-6">9. Children's Privacy</h2>
+                <p class="text-white/70">CalJin AI is not intended for users under 13 (16 in EEA). We do not knowingly
+                    collect data from minors. If we discover such data, we delete it promptly. Parents may contact <a
+                        href="mailto:support@caljinai.com"
+                        class="text-blue-400 hover:text-blue-300 underline font-semibold transition-colors">support@caljinai.com</a>.
+                </p>
             </div>
 
             <div class="section-divider"></div>
 
             <!-- Section 10 -->
             <div>
-                <h2 class="text-2xl font-bold text-white mb-6">10. Contact Us</h2>
+                <h2 class="text-2xl font-bold text-white mb-6">10. Your Rights & Choices</h2>
+                <ul class="list-disc pl-6 space-y-3 text-white/70">
+                    <li><strong class="text-white/90">Access & Correction:</strong> Review and update your profile in
+                        Settings.</li>
+                    <li><strong class="text-white/90">Data Deletion:</strong> Delete logs in-app, or remove all data via
+                        device settings.</li>
+                    <li><strong class="text-white/90">Notification Control:</strong> Toggle in App or device settings.
+                    </li>
+                    <li><strong class="text-white/90">Permission Management:</strong> Revoke via device system settings.
+                    </li>
+                    <li><strong class="text-white/90">Opt-Out of AI Processing:</strong> Stop using camera, voice, or
+                        manual entry features to avoid sending data to AI services.</li>
+                </ul>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- Section 11 -->
+            <div>
+                <h2 class="text-2xl font-bold text-white mb-6">11. Changes to This Privacy Policy</h2>
+                <p class="text-white/70">We may update this Privacy Policy. Material changes will be notified in-app.
+                    Continued use after changes constitutes acceptance.</p>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- Section 12 -->
+            <div>
+                <h2 class="text-2xl font-bold text-white mb-6">12. Contact Us</h2>
                 <p class="text-white/70 mb-6">If you have any questions or concerns about this Privacy Policy or your
-                    personal data, please contact us via our <a href="contact.html"
-                        class="text-blue-400 hover:text-blue-300 underline font-semibold transition-colors">Contact
-                        Form</a> or at:</p>
-                <p class="text-white/90 mb-1"><strong>Developer:</strong> Manolith</p>
+                    personal data, please contact us:</p>
+                <p class="text-white/90 mb-1"><strong>Data Controller:</strong> Manolith</p>
                 <p class="text-white/90 mb-1"><strong>Email:</strong> <a href="mailto:support@caljinai.com"
                         class="text-blue-400 hover:text-blue-300 underline transition-colors">support@caljinai.com</a>
                 </p>
-                <p class="text-white/90"><strong>Website:</strong> <a href="https://www.caljinai.com" target="_blank"
+                <p class="text-white/90 mb-1"><strong>Website:</strong> <a href="https://www.caljinai.com" target="_blank"
                         class="text-blue-400 hover:text-blue-300 underline transition-colors">www.caljinai.com</a></p>
-            </div>
+                <p class="text-white/90"><strong>Contact Form:</strong> <a href="https://caljinai.com/contact"
+                        target="_blank"
+                        class="text-blue-400 hover:text-blue-300 underline transition-colors">caljinai.com/contact</a>
+                </p>
             </div>
 
         </section>
 
-        <p class="text-white/30 text-sm mt-16 italic">This Privacy Policy was last updated on April 1, 2026.</p>
+        <p class="text-white/30 text-sm mt-16 italic">This Privacy Policy was last updated on May 31, 2026.</p>
     </main>
 
     <footer class="py-12 border-t border-white/5 px-6">
